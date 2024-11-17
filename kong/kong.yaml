@@ -6,7 +6,7 @@ _transform: true
 services:
   - name: spring-boot-service-kong-Testing-Arulraj
     # URL pointing to the Spring Boot application running on the Docker network
-    url: http://spring-app:8080
+    url: http://localhost:8085
     tags:
       - spring
       - jenkins
