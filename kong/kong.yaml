@@ -2,12 +2,20 @@ _format_version: "3.0"
 _transform: true
 
 services:
-  - name: spring-boot-service
-    url: http://spring-app:8080
+  - name: springboot-service
+    url: http://localhost:8080  # Change this to your Spring Boot service URL
+    retries: 3
+    connect_timeout: 6000
+    read_timeout: 6000
+    write_timeout: 6000
     routes:
-      - name: spring-boot-route
+      - name: springboot-route
         paths:
-          - /
-        strip_path: false
+          - /api
+        strip_path: true
+        preserve_host: false
         methods:
           - GET
+          - POST
+          - PUT
+          - DELETE
