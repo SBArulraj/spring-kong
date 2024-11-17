@@ -7,7 +7,7 @@ services:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: kong
     ports:
-      - "3306:3306"
+      - "3306"
     volumes:
       - mysql_data:/var/lib/mysql
 
@@ -48,7 +48,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8085:8080"
 
 volumes:
   mysql_data:
