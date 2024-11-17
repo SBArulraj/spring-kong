@@ -1,10 +1,37 @@
+# kong.yaml
 _format_version: "3.0"
 _transform: true
 
+# Define the Spring Boot service
 services:
-  - name: spring-boot-kong-service
+  - name: spring-boot-service-kong-Testing-Arulraj
+    # URL pointing to the Spring Boot application running on the Docker network
     url: http://spring-app:8080
+    tags:
+      - spring
+      - jenkins
     routes:
-      - name: spring-boot-kong-route
+      - name: spring-boot-route
+        # Publicly accessible path via Kong Gateway
         paths:
           - /api
+        methods:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+        strip_path: true
+        preserve_host: false
+
+# (Optional) Enable global plugins (if required)
+plugins:
+  - name: rate-limiting
+    config:
+      minute: 20
+      policy: local
+
+  - name: key-auth
+    config:
+      key_names:
+        - api_key
+      hide_credentials: true
