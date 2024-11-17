@@ -6,7 +6,7 @@ KONG_ADMIN_URL="http://localhost:8002"
 # Create a service
 curl -i -X POST ${KONG_ADMIN_URL}/services/ \
   --data "name=springboot-service" \
-  --data "url=http://localhost:8080/hello"
+  --data "url=http://localhost:8080/arulraj/hello"
 
 # Create a route
 curl -i -X POST ${KONG_ADMIN_URL}/services/springboot-service/routes \
