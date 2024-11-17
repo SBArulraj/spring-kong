@@ -2,9 +2,9 @@ _format_version: "3.0"
 _transform: true
 
 services:
-  - name: spring-boot-service
+  - name: spring-boot-kong-service
     url: http://spring-app:8080
     routes:
-      - name: spring-boot-route
+      - name: spring-boot-kong-route
         paths:
           - /api
