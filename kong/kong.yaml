@@ -7,11 +7,7 @@ services:
     routes:
       - name: spring-boot-route
         paths:
-          - /api
-        strip_path: true
-
-plugins:
-  - name: rate-limiting
-    config:
-      minute: 10
-      policy: local
+          - /
+        strip_path: false
+        methods:
+          - GET
