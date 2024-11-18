@@ -3,7 +3,7 @@ _transform: true
 
 services:
   - name: springboot-service
-    url: http://localhost:8080  # Change this to your Spring Boot service URL
+    url: http://192.168.1.11:8080  # Change this to your Spring Boot service URL
     retries: 3
     connect_timeout: 6000
     read_timeout: 6000
@@ -11,8 +11,8 @@ services:
     routes:
       - name: springboot-route
         paths:
-          - /api
-        strip_path: true
+          - /
+        strip_path: false
         preserve_host: false
         methods:
           - GET
