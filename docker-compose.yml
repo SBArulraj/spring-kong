@@ -13,13 +13,13 @@ services:
 
   # Kong Database (Postgres)
   kong-database:
-    image: postgres:13
+    image: postgres:15
     environment:
       POSTGRES_USER: kong
       POSTGRES_DB: kong
       POSTGRES_PASSWORD: kong
     ports:
-      - "5432:5432"
+      - "5433:5432"
     networks:
       - kong-network
 
