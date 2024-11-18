@@ -37,10 +37,11 @@ services:
       KONG_ADMIN_ACCESS_LOG: /dev/stdout
       KONG_PROXY_ERROR_LOG: /dev/stderr
       KONG_ADMIN_ERROR_LOG: /dev/stderr
-      KONG_ADMIN_LISTEN: "localhost:8001"
+      KONG_ADMIN_LISTEN: "localhost:8002"
     ports:
       - "8000:8000"
       - "8001:8001"
+      - "8002:8002"
     volumes:
       - ./kong/kong.yaml:/etc/kong/kong.yml
     depends_on:
