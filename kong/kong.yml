@@ -3,7 +3,7 @@ _transform: true
 
 services:
   - name: springboot-service
-    url: http://localhost:8080  # Change if Spring Boot is running on a different URL or port
+    url: http://localhost:8080
     retries: 3
     connect_timeout: 6000
     read_timeout: 6000
