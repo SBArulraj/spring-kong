@@ -1,7 +1,7 @@
 #!/bin/bash
 # Register the Spring Boot service with Kong Gateway (in case you prefer manual setup)
 
-KONG_ADMIN_URL="http://localhost:7001"
+KONG_ADMIN_URL="http://localhost:8001"
 
 # Register a new service
 curl -i -X POST ${KONG_ADMIN_URL}/services/ \
