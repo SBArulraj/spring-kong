@@ -22,7 +22,7 @@ services:
       - kong-network
 
   kong:
-    image: kong/kong-gateway:latest
+    image: docker.io/kong/kong-gateway:latest
     environment:
       KONG_DATABASE: postgres
       KONG_PG_HOST: kong-database
