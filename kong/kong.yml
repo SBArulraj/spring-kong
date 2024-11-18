@@ -14,6 +14,8 @@ services:
           - /api
         strip_path: true
         preserve_host: false
+        protocols:
+          - http
         methods:
           - GET
           - POST
