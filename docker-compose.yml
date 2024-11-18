@@ -27,7 +27,7 @@ services:
   kong:
     image: kong/kong-gateway:3.8.0.0
     volumes:
-      - ./kong/kong.yaml:/etc/kong/kong.yml
+      - ./kong/kong.yml:/etc/kong/kong.yml
     depends_on:
       - kong-database
     networks:
