@@ -1,23 +1,24 @@
-_format_version: "3.0"
-_transform: true
+_format_version: "2.1"
 
 services:
-  - name: springboot-service
+  - name: echo-server
     url: http://localhost:8080
-    retries: 3
-    connect_timeout: 6000
-    read_timeout: 6000
-    write_timeout: 6000
     routes:
-      - name: springboot-route
+      - name: echo
         paths:
-          - /api
-        strip_path: true
-        preserve_host: false
-        protocols:
-          - http
-        methods:
-          - GET
-          - POST
-          - PUT
-          - DELETE
+          - /
+
+# plugins section
+plugins:
+  - name: request-transformer
+    config:
+      remove:
+        headers:
+          - x-toremove
+        querystring:
+          - q-toremove
+      add:
+        headers:
+          - x-new-header:x-new-header
+        querystring:
+          - new-param:new-param
