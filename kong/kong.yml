@@ -1,24 +1,26 @@
 _format_version: "2.1"
 
 services:
+
   - name: echo-server
-    url: http://localhost:8080
+    url: http://192.168.1.11:6969
     routes:
       - name: echo
         paths:
-          - /
+          - /echo
 
 # plugins section
 plugins:
-  - name: request-transformer
+  - name: correlation-id
     config:
-      remove:
-        headers:
-          - x-toremove
-        querystring:
-          - q-toremove
-      add:
-        headers:
-          - x-new-header:x-new-header
-        querystring:
-          - new-param:new-param
+      header_name: Request-ID
+      generator: tracker
+      echo_downstream: false
+  - name: prometheus
+    config:
+      status_code_metrics: true
+      latency_metrics: true
+      bandwidth_metrics: true
+      upstream_health_metrics: true
+
+
